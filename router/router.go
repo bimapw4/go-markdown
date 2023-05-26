@@ -14,6 +14,15 @@ func Router() {
 	http.HandleFunc("/decrypt", controller.Decrypt)
 	http.HandleFunc("/decrypt-aes", controller.DecryptAES)
 
+	http.HandleFunc("/ocr", controller.Ocr)
+	http.HandleFunc("/face", controller.Face)
+	http.HandleFunc("/pigo", controller.Pigo)
+
 	http.HandleFunc("/lalal", controller.TestBack)
+
+	http.HandleFunc("/test-encrypt-aes", controller.TestEncryptAes)
+	http.HandleFunc("/test-decrypt-aes", controller.TestingDecryptAes)
+
+	http.HandleFunc("/localization", controller.Localization)
 
 }

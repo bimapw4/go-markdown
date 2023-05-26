@@ -6,8 +6,10 @@ import (
 	"crypto/rand"
 	"crypto/sha256"
 	"encoding/base64"
+	"encoding/hex"
 	"fmt"
 	"go-markdown/serivce/response"
+	"io"
 	"net/http"
 
 	"golang.org/x/crypto/pbkdf2"
@@ -32,7 +34,7 @@ func EncryptAES(w http.ResponseWriter, r *http.Request) {
 // "yjYyox6/GFFD5rEu14pRlyRLkYUcC69dXJD4C+6KPcuATIgKigZilJsXW0LxDiKckESp6pbUavd1jgCGbvDa/0rvNRw06RCIE1A78CtCBYjDuT9SykJaM/m2kJ2AzfUiyocO/179cIWBJiqEqURqoXVX7f4Z33jshFy08j+X38Uue1x2CndYJ+rjPXhIkrxEdK0o839laphe/U62Us4gVs6yWK0Y/MEinYTKIdMpXL8XWaHWA4yIQSxXfGz+Lp7znoA1tlUy5CNr1ndIbt8blr5LwcJ8329zwZTLXvsjVL8YF7387Mt4D8fTPomL5JGxVncFu06BJD5v2ha4WCYYJ5rtGftHXiDSLm11qSzPm0H7jkQVdtDYalhFnlnJn3I+VezEG/5ZOqd8p0NxqnW2YUJhcV3cDdCr9HAFhrDCOhTlIA=="
 
 func DecryptAES(w http.ResponseWriter, r *http.Request) {
-	passphrase := "b215190d10f7dc0bf7fe5fd78f568ac7e3c4845c9df9943092aa46fe6f621a40"
+	passphrase := "5777a5d6b4c4fc15f9d8ee5691012e3ee8d0f6a83f61b4084685d55bc0811fbe"
 
 	byteArr := make([]byte, 32)
 	AESKey := GenerateAESKey(passphrase, byteArr)
@@ -43,7 +45,7 @@ func DecryptAES(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("Endocde String: ", err)
 	}
 
-	encryptedData := "cmFxcEk2QVpGTzdtQkVPUUNmTDNCR3Fncjl0OWZEWGZBOGJ6Ry9zUDhFQ3JSenYrYm9rTzFkMUlHRVdrV1lYNlluU3ZlMmtoQ2lIOGJEL2FhUFk5VEJLM2h1eGVqSE9TZkUxV2lsUi9qdWRXQzh6R0VCOVBmUmV2SkxVNjJxUTVzUjhpYjlnVnRaRWVpbXp6eFlaVW04enZ0NVlxQS9YL0hXMlVyZXAyRklzU1dOTHpzY2ZLUzNSQTYyRWJWNlhFZFk2THZjSlFLOUhZMm9VMjdmUmc2UnBWNXkvb20zcyt1TDhOTlJUYUo3U2RHWC9GZE02eUZGTm1lUG9UM21meGxGQ25iWjhsc0VUeGg5RVIyblBaWCtEM0o1SkR0YlZEWjR0WmZqeFRhb2poaWFsQVVCcXZZelpjeUhOYWNBZExsMU9WdEw5a0szdXRoMkh0SEE5RU1JeUNnZW1RYVZCV3NyTU1QTFFqU1hoU2h2b1B6alI5c2NqZWV3NnlUeVRTcG4raWsxQmFaYkU4YVRDMXpsYXdqMytFejZEd1RTdkgvSlRhck42dE0zRkNyT3h5bmJyVHNLWE5MOHZSU01wVFViaC9wZEk0bCsycTNDbkptWmVXWElkVS9EVnNid2FRcGlZYVFtMHBqSnBQeXhWME8vd1NzOGpQQnA5T3k3T2NNNHFUOWZhcjZ2bEdySnNtMjh5TE8wSXBtWlg4dFBIMVE3aUtFTWNQU3NyOG1BTkdnaGY4YS9NMGl0SzA1SDc4T2tFVkNPbXgwd0Fxb0dhbmFkb1kvNGpqU29oajA0UFUrb09TckF5R2ZseHZ2aXVlRklkYXVhUWVmbGhXOElCT1I3SEp3WHV6aDd5Q0VoSjN4TGpJeFZYMjlrZU10MTFwVlg5MVlHUkJnWHJBY0g2OUF4SFBhemV2QmwvVEVLaXUwMml4KzMwblo0NlhVaGQvVlhrUGtKV3lBQTYvMXdzT2t0VHpXdWowNUk4OTJTZVRSalFFR3FEWmRNWUxOZ09hbkpHUmErbFQvRDhwakdNdVBxamhEYnhBNHhWeDNvb09yMGlPM29rOVZCcTdtbFZlUm9kUkdidGk4QTU1UUkxb3dIU0RGVTlMWXlxelI1TEk5SXRHK2liNDFZSWlVL3VwbzcrSjhkWEF0MGxSZVNYQzFCMHhOd2d1OHpwVTdhaGpZQ3NpTFJqVm1DeDlJM1VLNWV1TzM5WWFxVitDWmNHaFBVR2VMTHpMblA3dXR3ZmluWjRiSGt6V2pZdUlXTkNrOHhJbC9TTDNRd0FzQi9xVWJ6YitjMEpnbjB3aUY4dk0xQStZR2NHZW5wYjdLZXpTcnVMd0FIMEZacnBBZXVIaG52ZDgxNTNLNnhma3dqTWNZZmJiOXFkbUVJdG9nT2hQdXZPblVFamNzcGlaTnFJSnpJWW1Ba0haSVhsVXJ6YU5QcFl0WVBpVThvZHQxT3RvWm1YcHlnakJFQWRKMzh6S1FZeUwvUllxV1FnMXVzWjViZVAwa2xBejNERldaY0g2V2JTY1pwMVpETnYrendhWlY1cE1jT2tvTkp4Lzh2YnNpcWlNa1JTWlQyZGFSU1NmTy80WjYvRGpyV2hOMzdwVDlXYTJCdTluZDVYZGFnbU1QcXhPc0RMcnNMcktzcE5jaFlTTWhxWWsxMWE5SXo0U0t5QUV5Rk8vZFhvTElCUS9EaTNZV3RzOTdUb3ZRUWYyNndTcEJzbGJmN0hIZG5Bc0g3M3FNckpwYUhaWlFaRXgrRkZHcDRmbFVsRXptMUpEMmRERjltaHpHbThBeUtlYnMzRTdZWExRSmhvczJVMDAwNVZJbGd6K0JUZHhHSTlxZnFvRVVnNEJxWEU4VUlmT1RvcTNUeU03eGFKajM5ZUZFWmhoRGUvd2czN1JXcnNyUk1GNWNVUURvOERSbmtXdERKbnczQXVzL1ZvTDFjbTR1OGRFRmt6dTk4akcza0ovblhBcWtBUmdiY295OE5xdXBKQ1lLdHlRam5JWkpYOEg4eFpaMDVSdGZZOXUzWm9UNFNicGJSb3UwK1BWdVpaRjhzUTRMWVp0Z1luUEJHUGV6amM3dGFJa2tyZ1lVQ1hhZ09RMXpFcklCaXI5S0tMZ1JmUWZBTEl4eE4xczdIdm96NlFMS0Y2SE1LVk9KdDhPZ2lsUDFJd3M5MXl1K0NlNjJvWjRvcWtNT3hmQ21vdXlmOUk2RUtuRlZyRnJMbHlqSmFtQTZTRnVxM3BsY0lEbUdlc2hCTUNQektiQU5HWUwzQVFlNktFMVlma2EyaUZCdm1ORFVoRHQ0RTlQdTVNZjNXcDNEU0VQbldKeVFLTHdaRXJOdENnQlU4SXMxTE55ajZyem9qQWc2ZmtKY040WEdGUzg5L1VqWnJJV2FKVzdxanZHc3ZkQXA2NFY1Unl2V3dJeUtkT1AwMXlWOEtzTEJaSnNCVkdMVW1PVlRNMUVRcXJXbFoxRC9zWUNVK0hrcnVaakdzNWE4cmxtVXMyS2s0YzVpZUc5aWZqbkRWaUFla0FGQ1hjSVYyanY3NURoVVhTQVhQZDVEY2d0UmI1WW9mVXNrZE85djBvck1vamorN1dEM0NnNU9uMXpFcTd5ZUlkTnhoWT0="
+	encryptedData := "TUNXYW03MUdNQXFwVkJDbTlGcm95QzJpZm1LQndJQ2hQNVhHQWZNdm1rSktBeDhnWGUwY3dGZGF4cTlzZDViRkNnempXM1hKOWRJSDBHZzJ5aXNkbjg0dXZuZXFvcGdOUkRwYU53bzJjS1ZKcmlzZkQxTG5sbGFNZGFVMmlmYlBFQzhvcWZuQVpJbUhYYWl3bkc5eHlQU2t3ZHV3N0F6cGczOXJZMWVxZWJ3UHdrZ1ZURWlPL2hnOEhpdTNqdVA3aDY0NGg0N3BCYnVmSTl1V2RSc0dJQ0dqQUk1dTBsWnhHYjBUMUs5QXF0dnBMMTFNcFRzcHZ1QWlnSHRDdXRkUHVtZWhuZHNvNlluci9nV0pob0lQUVFPbVhHZTZlbTZRVDNSVlNRakdIV3NBV3E1OXlheVpkbTJaUmI2aXY4VzNGaWlyNkx2YXQ4WTBPYkRYZGJtMTIrTi9SeXVNZUhueHNxT0pPZzljbnFGQkQ2V3dKSDhuVjhMdFBSSFFkRk9rbmpreU9HZVRiOC8rb2l5YmVaNnBuc0JZS1pXMkVsYjM4MFBkdFVKT3l1eUtpcExJbnRiVFhYRy9MQ3k0Mml3b0VSWDJzYkdROHk0RGI2Sy9JRWhlWkNwbW96ZnZiNHR6aWRSS2ozSGthYU8zaFVBZ0FuWGVTTE1SbjcxMGhkOVM0TVErOUZ6b1l0SHZPeG42TS9OeTJ6c2dwYWN4Tm16SGVrQ2EzcWlNTDBuUFd3c1JpSCtSSDFhcjRKQTVTWUZoZTZNSkxDblIxWS9kNitnV3ZtTXArNXhuNTIwMHBEUUxPbTF3NUl5OTFCUGxYS1AxQ3dSOUZQbE1RNzIyNVA0RkFPTS94ZXBoOHE4VDFiTHVRQmpqb0c3c3VrZWx4MWxONGNKU3NBT2Fvc2hWZmphdVJlZEp5RkNPVFJmUENoSzZZekU1MEovN0tGTjRicXRNeHFCWmE2SGhwVWtzSS9rTjhSSzVSWkV5eldLNDlqUGhPOGg3czBZMkRkNmVRMmtQOStxaC9aTkNsczdaUUFuRFZkZTlnSm9EbGorenFENHZDcGpQdlRuYTN4aGZCcklBN1ViTkJWYityNDBQZ214TVdIakJNODBCVWpBV2xjWm9FRC9NdVFqZDAwclZ3ZUl6ZlNJR2QzRHo2Ym1Qajk2cVAzeXVDN1ZOdGVCRDUvSTBzV3JZbXZtUTZpWUhyWTJtTHVpd3EvOEZKVStrQzVUNy9aVW5jcEVkb0VDZVpOQlltREJ4Sk1ySUYwc1dGLzgxbVQxRFgybkhmV0M0VlVob2grZW9Hdko4TWJOcjc4bjF0NzdrZGhPMEtwdVlwaE9vSWpLRW0wQnoxa1VtbThOdWszcnBINlZDZFJTOURYM0RueXJqTTV1NFNWOFhpb0d6VlRwbEdlekcwbE5BRGNjMk1rVnRscEFvRW0xWlN4Y0c1Qkl4SXpDZVMrbzNETHJ6WVU0SzhRYzNSUlBVeitnL3B0WU1mSzVCUnc4UFdNOWV5VVhFazhLS0g3YjhqRktYcEYxYjdsTVZFL3ZtZjg3UGIxZENUTGJHdCt6R2VscDUrR0JTUXBrek93c1BHall3RVljbkNpV2hJb3BNNjgra1VkazlyK2I2bitsOGhZWnQ2Yk5yWk9RY2VibmZSTzk0dFJZWWJ4OFBHNUVMVm9KSWZNZE1nZWFWUWFPc0cyZlIreXdiL1RWZXE2TjJFYVdLKy9mR3RKa05jMFdUc2dYNjZVbVJIVkpLMVc3djAzK0NYTFF0blc0WDh3MThJWnVYRmRMZ1kvK3pPSDhJanRRenpsYmE3ZnhsbTNzMzBvMFNQeURZY2RNdWxmUkUyYnQ2VlFPYTQ0WEd1RFBHR3ZiMnM5bXplc3phSVRMdk05aXUvSGVrdlhTLzlVMm12b2xhWERhN3RsWG1mR0FMVEVLS3BvTHZlQ3N2N1VZRzhJRzNOemJmNnREK00xenpjcHNncGFxSHo0TWV6MU8xdkUrWWpoTko2OFErWWZoa1d1TTJzSGhOU1ZXU2RpVmFzQnQrYVorYmZ3S3YxbTBBQ29Ta3BPTjE2THRiVTd5bjBhcUpVbzAzMGd4QTFDWWRuK1dZSDNiUDNYU01UbHNhYnBDQWVFMk1QdTV3K3pzeTh6bzI5RGlQNFE3cUUrL3pQQUJEUjh0K3VyZTBremNjM1VZR09zRGFwemJ5akR2NUg3cHFpNFVuNDJSNlladm9mN1h1RGpQVTN3dCtibDcvQkd6SlVtMUk4NSs5TlJYZmtabkltQTFlc1VwaEVNbjJqM1loNVU0MWFsNm50ZTRtb3dLTjdHenIvdEpMWFJsUGRyRXVFcDRCNTZPY0pZalJWTWxWWlJUcmxwNElqU3RtUXZzM3ZZcWM3anNNMU0yWDNlYlZqOWFYRWU5dzY1M242Snl3UkFnT0lTUVhQVXNyNDZYNGdSRnFhZFZDNGo2Mm04NDVZZWR3WmxBTU5VV2R5dFlldll0QVF2cGlxZTlSbnBRTmxYWXV4THdzUVB0RDhIYzBNckRsMEJIMkJQOHNFcEgraTdmK2xYYkhnSXJWZVpxclJ2K2p6TFhZM29uMzl4Q0hmU1gxTFR5R05RR0VnOG1wYUVUY3hqV1NMK3hhSlNweGFVY00vYVk5MzNVSnJIUHN2UHVYamVFQUNhamtnQTVuVU02YlNzNVFvdDdoVmhNMGdyejRjWmtwSmphbFh6VVkzb2hhVnZ5NjV2cUw1MFpsWExnMTVlckcyU3RaY0x2YTYvdz0="
 	encryptedDataWithAeskeyBase64, err := base64.StdEncoding.DecodeString(encryptedData)
 	if err != nil {
 		fmt.Println("base Data: ", err)
@@ -92,6 +94,82 @@ func DecryptDataWithAES(key []byte, chiperText string) (string, error) {
 	stream.XORKeyStream(cipherTextString, cipherTextString)
 
 	return string(cipherTextString), nil
+}
+
+func TestEncryptAes(w http.ResponseWriter, r *http.Request) {
+	key := []byte("ck3SXyuVFxBW5enWyq7qKH4WSbz7RVfB")
+
+	// Copy the input data to the byte array
+	fmt.Println("panjnag string key  ==== ", len(key))
+
+	plaintext := []byte("HALOOO BITCH BABII HEHEHE")
+
+	block, err := aes.NewCipher(key)
+	if err != nil {
+		panic(err.Error())
+	}
+
+	aesGCM, err := cipher.NewGCM(block)
+	if err != nil {
+		panic(err.Error())
+	}
+
+	nonce := make([]byte, aesGCM.NonceSize())
+	if _, err = io.ReadFull(rand.Reader, nonce); err != nil {
+		panic(err.Error())
+	}
+
+	ciphertext := aesGCM.Seal(nonce, nonce, plaintext, nil)
+	fmt.Printf("%x", ciphertext)
+
+	output := base64.StdEncoding.EncodeToString(ciphertext)
+
+	response.NewResponse().WithCode(http.StatusAccepted).WithData(map[string]interface{}{
+		"output": output,
+	}).ParseResponse(w, r)
+}
+
+func TestingDecryptAes(w http.ResponseWriter, r *http.Request) {
+	strings := hex.EncodeToString([]byte("bimapw04"))
+	fmt.Println("sasasa ====", strings)
+
+	key := []byte(strings)
+
+	enc, err := base64.StdEncoding.DecodeString("2Mwb+geUZi7sVhlhzVJfv7uRcKRq59fGND/N+SmQocIZyZ4SNpCP9rhFnCB39odMn5F95Wk=")
+	if err != nil {
+		fmt.Println("masuk ini ", err)
+	}
+	fmt.Println("sasa ==== ", enc)
+
+	//Create a new Cipher Block from the key
+	block, err := aes.NewCipher(key)
+	if err != nil {
+		panic(err.Error())
+	}
+
+	//Create a new GCM
+	aesGCM, err := cipher.NewGCM(block)
+	if err != nil {
+		panic(err.Error())
+	}
+
+	//Get the nonce size
+	nonceSize := aesGCM.NonceSize()
+
+	//Extract the nonce from the encrypted data
+	nonce, ciphertext := enc[:nonceSize], enc[nonceSize:]
+
+	//Decrypt the data
+	plaintext, err := aesGCM.Open(nil, nonce, ciphertext, nil)
+	if err != nil {
+		panic(err.Error())
+	}
+
+	fmt.Printf("%s", plaintext)
+
+	response.NewResponse().WithCode(http.StatusAccepted).WithData(map[string]interface{}{
+		"output": string(plaintext),
+	}).ParseResponse(w, r)
 }
 
 func DecryptAES1(w http.ResponseWriter, r *http.Request) {

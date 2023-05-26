@@ -6,10 +6,20 @@ import (
 	"go-markdown/serivce/response"
 	"log"
 	"net/http"
+	"os/exec"
 )
 
 func main() {
 	port := ":9000"
+
+	cmd := exec.Command(`C:\Program Files (x86)\Tesseract-OCR\tesseract.exe`, "./images/photo_ktp.jpg", "output")
+	fmt.Println(cmd)
+
+	out, err := cmd.Output()
+	if err != nil {
+		fmt.Println("could not run command: ", err)
+	}
+	fmt.Println("Output: ", string(out))
 
 	fmt.Println("server is running on port", port)
 
@@ -22,7 +32,7 @@ func main() {
 
 	router.Router()
 
-	err := http.ListenAndServe(port, nil)
+	err = http.ListenAndServe(port, nil)
 
 	if err != nil {
 		log.Fatal(err)

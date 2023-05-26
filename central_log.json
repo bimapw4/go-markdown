@@ -1,0 +1,612 @@
+{
+    "opened account_activity" : {
+        "activity" : {
+            "en" : "opened",
+            "id" : "membuka"
+        },
+        "activity_text" : {
+            "en" : "You opened document {{document}}",
+            "id" : "Anda membuka dokumen {{document}}"
+        }
+    },
+    "renew certificate account_activity" : {
+        "activity" : {
+            "en" : "renewed",
+            "id" : "memperbarui"
+        },
+        "activity_text" : {
+            "en" : "You renewed your digital certificate",
+            "id" : "Anda memperbarui sertifikat digital Anda"
+        }
+    },
+    "request otp account_activity" : {
+        "activity" : {
+            "en" : "request otp",
+            "id" : "ambil otp"
+        },
+        "activity_text" : {
+            "id" : "Anda meminta OTP pada dokumen {{document}}",
+            "en" : "You requested an OTP on document {{document}}"
+        }
+    },
+    "input otp account_activity" : {
+        "activity" : {
+            "en" : "inputted an OTP",
+            "id" : "memasukkan OTP"
+        },
+        "activity_text" : {
+            "id" : "Anda memasukkan OTP pada dokumen {{document}}",
+            "en" : "You inputted an OTP on document {{document}}"
+        }
+    },
+    "initial ver. downloaded account_activity" : {
+        "activity" : {
+            "en" : "initial ver. downloaded",
+            "id" : "mengunduh versi awal"
+        },
+        "activity_text" : {
+            "id" : "Anda mengunduh dokumen {{.document}}",
+            "en" : "You downloaded the original document of {{.document}}"
+        }
+    },
+    "signed ver. downloaded account_activity" : {
+        "activity" : {
+            "id" : "veri tanda tangan diunduh",
+            "en" : "Signed ver. Downloaded"
+        },
+        "activity_text" : {
+            "id" : "Anda mengunduh dokumen yang telah ditandatangani pada {{.document}}",
+            "en" : "You downloaded the signed document of {{.document}}"
+        }
+    },
+    "sealed enterprise account_activity" : {
+        "activity" : {
+            "id" : "menyegel dokumen",
+            "en" : "sealed enterprise"
+        },
+        "activity_text" : {
+            "id" : "Anda menyegel dokumen Enterprise {{.document}}",
+            "en" : "You sealed Enterprise document {{.document}}"
+        }
+    },
+    "attached account_activity" : {
+        "activity" : {
+            "id" : "menyematkan e-Meterai",
+            "en" : "attached an e-Meterai"
+        },
+        "activity_text" : {
+            "id" : "Anda menyematkan e-Meterai pada dokumen {{.document}}",
+            "en" : "You attached an e-Meterai on document {{.document}}"
+        }
+    },
+    "approve e-meterai account_activity" : {
+        "activity" : {
+            "id" : "menyetujui penyematan e-Meterai",
+            "en" : "approved an e-Meterai"
+        },
+        "activity_text" : {
+            "id" : "Anda menyetujui penyematan e-Meterai pada dokumen {{.document}}",
+            "en" : "You approved an e-Meterai on the document {{.document}}"
+        }
+    },
+    "approve tnc e-meterai account_activity" : {
+        "activity" : {
+            "id" : "menyetujui Syarat dan Ketentuan e-Meterai",
+            "en" : "approved the e-Meterai's Terms and Conditions"
+        },
+        "activity_text" : {
+            "id" : "Anda menyetujui Syarat dan Ketentuan e-Meterai pada dokumen {{.document}}",
+            "en" : "You approved the e-Meterai's Terms and Conditions on document {{.document}}"
+        }
+    },
+    "approve e-meterai (insufficient) account_activity" : {
+        "activity" : {
+            "id" : "menyetujui penyematan e-Meterai yang tidak mencukupi",
+            "en" : "approved the attachment of an insufficient e-Meterai"
+        },
+        "activity_text" : {
+            "id" : "Anda menyetujui penyematan e-Meterai yang tidak mencukupi pada dokumen {{.document}}",
+            "en" : "You approved the attachment of an insufficient e-Meterai for document {{.document}}"
+        }
+    },
+    "decline e-meterai account_activity" : {
+        "activity" : {
+            "id" : "menolak e-materai",
+            "en" : "decline e-materai"
+        },
+        "activity_text" : {
+            "en" : "You declined the attachment of an e-Meterai for document {{.document}}",
+            "id" : "Anda menolak penyematan e-Meterai {{.document}}"
+        }
+    },
+    "merchant account_activity" : {
+        "activity" : {
+            "id" : "Merchant",
+            "en" : "Merchant"
+        },
+        "activity_text" : {
+            "id" : "Anda menerima {{.document}} dari merchant",
+            "en" : "You received {{.document}} from the merchant"
+        }
+    },
+    "browser account_activity" : {
+        "activity" : {
+            "id" : "peramban",
+            "en" : "browser"
+        },
+        "activity_text" : {
+            "id" : "Anda mengakses Privy dari {{.useragent}}",
+            "en" : "You accessed Privy from {{.useragent}}"
+        }
+    },
+    "receive account_activity" : {
+        "activity" : {
+            "id" : "menerima",
+            "en" : "receive"
+        },
+        "activity_text" : {
+            "id" : "Anda menerima dokumen {{.document}}",
+            "en" : "You received the document {{.document}}"
+        }
+    },
+    "reviewed account_activity" : {
+        "activity" : {
+            "id" : "mengulas",
+            "en" : "reviewed"
+        },
+        "activity_text" : {
+            "id" : "Anda mengulas dokumen {{.document}}",
+            "en" : "You reviewed the document {{.document}}"
+        }
+    },
+    "rejected account_activity" : {
+        "activity" : {
+            "id" : "menolak",
+            "en" : "rejected"
+        },
+        "activity_text" : {
+            "id" : "Anda menolak dokumen {{.document}}",
+            "en" : "You rejected the document {{.document}}"
+        }
+    },
+    "sealed account_activity" : {
+        "activity" : {
+            "id" : "menyegel",
+            "en" : "sealed"
+        },
+        "activity_text" : {
+            "id" : "Anda menolak dokumen {{.document}}",
+            "en" : "You sealed the document {{.document}}"
+        }
+    },
+    "stamped account_activity" : {
+        "activity" : {
+            "id" : "stempel",
+            "en" : "stamped"
+        },
+        "activity_text" : {
+            "id" : "Anda menstempel dokumen {{.document}}",
+            "en" : "You stamped the document {{.document}}"
+        }
+    },
+    "voided account_activity" : {
+        "activity" : {
+            "id" : "menarik",
+            "en" : "voided"
+        },
+        "activity_text" : {
+            "id" : "Anda menarik dokumen {{.document}}",
+            "en" : "You voided the document {{.document}}"
+        }
+    },
+    "shared account_activity" : {
+        "activity" : {
+            "id" : "membagi",
+            "en" : "shared"
+        },
+        "activity_text" : {
+            "id" : "Anda membagi dokumen {{.document}}",
+            "en" : "You shared document {{.document}}"
+        }
+    },
+    "mobile apps account_activity" : {
+        "activity" : {
+            "id" : "aplikasi mobile",
+            "en" : "mobile apps"
+        },
+        "activity_text" : {
+            "id" : "Anda mengakses Privy dari aplikasi",
+            "en" : "You accessed Privy from mobile apps"
+        }
+    },
+    "login account_activity" : {
+        "activity" : {
+            "id" : "masuk",
+            "en" : "logged in"
+        },
+        "activity_text" : {
+            "id" : "Anda masuk melalui {{.userAgent}}",
+            "en" : "You logged in on {{.userAgent}}"
+        }
+    },
+    "logout account_activity" : {
+        "activity" : {
+            "id" : "keluar",
+            "en" : "logged out"
+        },
+        "activity_text" : {
+            "id" : "Anda keluar melalui {{.userAgent}}",
+            "en" : "You logged out on {{.userAgent}}"
+        }
+    },
+    "uploaded account_activity" : {
+        "activity" : {
+            "id" : "mengunggah",
+            "en" : "uploaded"
+        },
+        "activity_text" : {
+            "id" : "Anda baru saja {{.activity}} dokumen {{.document}}",
+            "en" : "You just {{.activity}} document {{.document}}"
+        }
+    },
+    "approved account_activity" : {
+        "activity" : {
+            "id" : "menyetujui",
+            "en" : "approved"
+        },
+        "activity_text" : {
+            "id" : "Anda menyetujui dokumen {{.document}}",
+            "en" : "You approved document {{.document}}"
+        }
+    },
+    "placed account_activity" : {
+        "activity" : {
+            "id" : "menempatkan e-Materai",
+            "en" : "placed e-Materai's"
+        },
+        "activity_text" : {
+            "id" : "Anda baru saja menempatkan e-Materai pada dokumen {{.document}}",
+            "en" : "You placed e-Materai's on document {{.document}}"
+        }
+    },
+    "signed account_activity" : {
+        "activity" : {
+            "id" : "menandatangani",
+            "en" : "signed"
+        },
+        "activity_text" : {
+            "id" : "Anda menandatangani dokumen {{.document}}",
+            "en" : "You signed document {{.document}}"
+        }
+    },
+    "confirm otp account_activity" : {
+        "activity" : {
+            "id" : "mengonfirmasi otp",
+            "en" : "confirmed an otp"
+        },
+        "activity_text" : {
+            "id" : "Anda mengonfirmasi otp pada dokumen {{.document}}",
+            "en" : "You confirmed an otp the document {{.document}}"
+        }
+    },
+    "request otp by email account_activity" : {
+        "activity" : {
+            "id" : "meminta otp melalui email",
+            "en" : "requested an otp via email"
+        },
+        "activity_text" : {
+            "id" : "Anda meminta otp melalui email pada dokumen {{.document}}",
+            "en" : "You requested an otp via email on the document {{.document}}"
+        }
+    },
+    "unknown account_activity" : {
+        "activity" : {
+            "id" : "menyelesaikan",
+            "en" : "completed"
+        },
+        "activity_text" : {
+            "id" : "Anda menyelesaikan sebuah aktivitas",
+            "en" : "You completed an activity"
+        }
+    },
+    "opened" : {
+        "activity" : {
+            "id" : "membuka",
+            "en" : "opened"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} membuka dokumen",
+            "en" : "{{.actor}} opened the document"
+        }
+    },
+    "archived" : {
+        "activity" : {
+            "id" : "mengarsipkan",
+            "en" : "archived"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} mengarsipkan dokumen",
+            "en" : "{{.actor}} archived the document"
+        }
+    },
+    "unarchived" : {
+        "activity" : {
+            "id" : "membatalkan arsip",
+            "en" : "unarchived"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} membatalkan arsip dokumen",
+            "en" : "{{.actor}} unarchived the document"
+        }
+    },
+    "shared" : {
+        "activity" : {
+            "id" : "membagikan",
+            "en" : "shared"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} membagikan dokumen",
+            "en" : "{{.actor}} shared the document"
+        }
+    },
+    "signed" : {
+        "activity" : {
+            "id" : "menandatangani",
+            "en" : "signed"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} membagikan dokumen",
+            "en" : "{{.actor}} shared the document"
+        }
+    },
+    "otp" : {
+        "activity" : {
+            "id" : "otp",
+            "en" : "otp"
+        },
+        "activity_text" : {
+            "id" : "Anda mengajukan OTP dokumen",
+            "en" : "You request {{ .activity }} document"
+        }
+    },
+    "sharing" : {
+        "activity" : {
+            "id" : "membagikan",
+            "en" : "sharing"
+        },
+        "activity_text" : {
+            "en" : "Anda membagikan {{.content}} data personal kepada {{.appName}}",
+            "id" : "You shared {{.content}} personal data with {{.appName}}"
+        }
+    },
+    "request otp by email" : {
+        "activity" : {
+            "id" : "meminta otp melalui email",
+            "en" : "requested an otp via email"
+        },
+        "activity_text" : {
+            "id" : "Anda meminta otp melalui email pada dokumen {{.document}}",
+            "en" : "You requested an otp via email on the document {{.document}}"
+        }
+    },
+    "confirm otp" : {
+        "activity" : {
+            "id" : "mengonfirmasi otp",
+            "en" : "confirmed an otp"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} mengonfirmasi otp pada dokumen",
+            "en" : "{{.actor}} confirmed an otp the document"
+        }
+    },
+    "initial ver. downloaded" : {
+        "activity" : {
+            "id" : "mengunduh",
+            "en" : "downloaded"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} mengunduh dokumen",
+            "en" : "{{.actor}} downloaded original document"
+        }
+    },
+    "signed ver. downloaded" : {
+        "activity" : {
+            "id" : "mengunduh",
+            "en" : "downloaded"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} mengunduh dokumen yang telah ditandatangani",
+            "en" : "{{.actor}} downloaded signed document"
+        }
+    },
+    "sealed enterprise" : {
+        "activity" : {
+            "id" : "menyegel",
+            "en" : "sealed"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} menyegel dokumen Enterprise",
+            "en" : "{{.actor}} sealed the Enterprise document"
+        }
+    },
+    "attached" : {
+        "activity" : {
+            "id" : "menyematkan",
+            "en" : "Attached"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} menyematkan e-Meterai pada dokumen",
+            "en" : "{{.actor}} attached an e-Meterai to the document"
+        }
+    },
+    "approve e-meterai" : {
+        "activity" : {
+            "id" : "menyetujui penyematan e-Meterai",
+            "en" : "approved an e-Meterai"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} menyetujui penyematan e-Meterai pada dokumen",
+            "en" : "{{.actor}} approved an e-Meterai on the document"
+        }
+    },
+    "approve tnc e-meterai" : {
+        "activity" : {
+            "id" : "menyetujui Syarat dan Ketentuan e-Meterai",
+            "en" : "approved the e-Meterai's Terms and Conditions"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} menyetujui Syarat dan Ketentuan e-Meterai pada dokumen",
+            "en" : "{{.actor}} approved the e-Meterai's Terms and Conditions in the document."
+        }
+    },
+    "approved" : {
+        "activity" : {
+            "en" : "menyetujui",
+            "id" : "approved"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} menyetujui dokumen",
+            "en" : "{{.actor}} approved the document"
+        }
+    },
+    "approve e-meterai (insufficient)" : {
+        "activity" : {
+            "id" : "menyetujui penyematan e-Meterai yang tidak mencukupi",
+            "en" : "approved an insufficient e-Meterai"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} menyetujui penyematan e-Meterai yang tidak mencukupi pada dokumen",
+            "en" : "{{.actor}} approved an insufficient e-Meterai on the document"
+        }
+    },
+    "decline e-meterai" : {
+        "activity" : {
+            "id" : "tolak e-meterai",
+            "en" : "decline e-meterai"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} menolak penyematan e-Meterai pada dokumen",
+            "en" : "{{.actor}} declined the attachment of an e-Meterai on the document"
+        }
+    },
+    "merchant" : {
+        "activity" : {
+            "id" : "merchant",
+            "en" : "merchant"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} menerima dokumen dari merchant",
+            "en" : "{{.actor}} received the document from the merchant"
+        }
+    },
+    "browser" : {
+        "activity" : {
+            "id" : "browser",
+            "en" : "browser"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} mengakses Privy dari {{.useragent}}",
+            "en" : "{{.actor}} accessed Privy from {{.useragent}}"
+        }
+    },
+    "mobile apps" : {
+        "activity" : {
+            "id" : "mobile apps",
+            "en" : "mobile apps"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} mengakses Privy dari aplikasi",
+            "en" : "{{.actor}} accessed Privy from mobile apps"
+        }
+    },
+    "receive" : {
+        "activity" : {
+            "id" : "menerima",
+            "en" : "received"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} menerima dokumen",
+            "en" : "{{.actor}} received the document"
+        }
+    },
+    "reviewed" : {
+        "activity" : {
+            "id" : "mengulas",
+            "en" : "reviewed"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} mengulas dokumen",
+            "en" : "{{.actor}} reviewed the document"
+        }
+    },
+    "rejected" : {
+        "activity" : {
+            "id" : "menolak",
+            "en" : "rejected"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} menolak dokumen",
+            "en" : "{{.actor}} rejected the document"
+        }
+    },
+    "sealed" : {
+        "activity" : {
+            "id" : "menyegel",
+            "en" : "sealed"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} menyegel dokumen",
+            "en" : "{{.actor}} sealed the document"
+        }
+    },
+    "stamped" : {
+        "activity" : {
+            "id" : "stempel",
+            "en" : "stamped"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} menstempel dokumen",
+            "en" : "{{.actor}} stamped the document"
+        }
+    },
+    "voided" : {
+        "activity" : {
+            "id" : "menarik",
+            "en" : "voided"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} menarik dokumen",
+            "en" : "{{.actor}} voided the document"
+        }
+    },
+    "login" : {
+        "activity" : {
+            "id" : "masuk",
+            "en" : "logged in"
+        },
+        "activity_text" : {
+            "id" : "Anda masuk melalui {{.userAgent}}",
+            "en" : "You logged in {{.userAgent}}"
+        }
+    },
+    "logout" : {
+        "activity" : {
+            "id" : "keluar",
+            "en" : "logged out"
+        },
+        "activity_text" : {
+            "id" : "Anda keluar melalui {{.userAgent}}",
+            "en" : "You logged out {{.userAgent}}"
+        }
+    },
+    "placed" : {
+        "activity" : {
+            "id" : "menempatkan e-Materai",
+            "en" : "placed e-Materai's"
+        },
+        "activity_text" : {
+            "id" : "{{.actor}} menempatkan e-Materai pada dokumen",
+            "en" : "{{.actor}} placed e-Materai's on document"
+        }
+    }
+}
