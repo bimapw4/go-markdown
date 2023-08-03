@@ -25,4 +25,6 @@ func Router() {
 
 	http.HandleFunc("/localization", controller.Localization)
 
+	http.HandleFunc("/mustache", controller.TestMustache)
+
 }

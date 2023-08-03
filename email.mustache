@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Additional Data Submitted</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <style type="text/css">
+        .wrapper {
+            padding: 60px 84px;
+        }
+        @media (max-width: 640px) {
+            .wrapper {
+                padding: 0;
+            }
+        }
+
+        .container {
+            padding: 32px 64px 40px 64px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 32px 20px 40px 20px;
+            }
+        }
+
+        .logo-image {
+            width: 50%;
+            height: 60px;
+            background-size: contain;
+            background-position: left;
+            background-repeat: no-repeat;
+        }
+
+        .note-container {
+            padding: 8px 0 0 0;
+        }
+        @media (max-width: 768px) {
+            .note-container {
+                padding: 0 20px;
+            }
+        }
+
+        .footer-container {
+            padding: 64px;
+        }
+        @media (max-width: 768px) {
+            .footer-container {
+                padding: 28px 20px 92px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body bgcolor="#F4F5F7" style="padding:0;margin:0;background-color:#F4F5F7">
+<div style="height:100%;font-family: 'DM Sans', sans-serif;line-height:1.6!important;text-align:center!important;background:#F4F5F7!important;margin:0;padding:0">
+    <table width="100%" bgcolor="#F4F5F7" border="0" cellpadding="0" cellspacing="0" class="wrapper" style="max-width:100%!important;width:100%!important;">
+        <tbody>
+
+        <tr>
+            <td align="center" valign="top">
+                <table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" style="width:100%;max-width:600px;overflow: hidden;">
+                    <tbody>
+                    <tr>
+                        <td align="left">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="container">
+                                <tbody>
+                                <!--<tr height="30"><td style="border-top:8px solid #e42e2c;"> </td></tr>-->
+                                <tr>
+                                    <td>
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td align="left" style="padding:16px 0">
+                                                    <img src="https://web.privy.id/assets/email/logo-privyid.png" alt="privy-logo" width="140" height="34" style="display:inline-block!important;vertical-align:top!important;">
+                                                </td>
+                                                {{#Logo}}
+                                                    <td align="left" style="padding:16px 8px">
+                                                        <img src="https://res.cloudinary.com/di7l8f4vf/image/upload/v1688034606/Close_xpglp7.png" alt="x-icon" width="20" height="20" style="display:inline-block!important;vertical-align:top!important;">
+                                                    </td>
+                                                    <td align="left" width="75%" style="padding:16px 0">
+                                                        <div class="logo-image" style="background-image: url('{{ Logo }}')"></div>
+                                                    </td>
+                                                {{/Logo}}
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                {{#Title}}
+                                    <tr>
+                                        <td align="left" style="padding-top:24px">
+                                            <h2 style="margin:0;font-size:16px;font-weight:500;line-height:24px;color:#545B67;letter-spacing:.4px;max-width:440px;font-family:'DM Sans',sans-serif;">{{ TitleId }}</h2>
+                                            <p style="margin:4px 0 0 0;font-size:12px;line-height:16px;color:#9197A3;letter-spacing:.2px;max-width:324px;font-family:'DM Sans',sans-serif;">{{ TitleEn }}</p>
+                                        </td>
+                                    </tr>
+                                {{/Title}}
+                                <tr>
+                                    <td align="left" style="padding-top:24px">
+                                        <h2 style="margin:0;font-size:16px;font-weight:400;line-height:24px;color:#1B2434;letter-spacing:.2px;font-family:'DM Sans',sans-serif;">Hai {{ Name }},</h2>
+                                        <p style="margin:4px 0 0 0;font-size:12px;line-height:15px;color:#9197A3;letter-spacing:.4px;font-family:'DM Sans',sans-serif;">Hi {{ Name }},</p>
+                                    </td>
+                                </tr>
+
+                                {{#Paragraph}}
+                                    <tr>
+                                        <td align="left" style="padding-top:24px">
+                                            <p style="margin:0;font-size:16px;font-weight:400;line-height:24px;color:#1B2434;letter-spacing:.2px;font-family:'DM Sans',sans-serif;">{{{ Id }}}</p>
+                                            <p style="margin:4px 0 0 0;font-size:12px;line-height:15px;color:#9197A3;letter-spacing:.4px;font-family:'DM Sans',sans-serif;">{{{ En }}}</p>
+                                        </td>
+                                    </tr>
+                                {{/Paragraph}}
+
+                                {{#Image}}
+                                    {{#ImageActive}}
+                                        <tr>
+                                            <td align="center" style="padding-top:24px">
+                                                <img src="{{ImageUrl}}" alt="privylege" style="display:inline-block!important;vertical-align:top!important;width:100%;height:auto">
+                                            </td>
+                                        </tr>
+                                    {{/ImageActive}}
+                                {{/Image}}
+
+                                {{#Button}}
+                                    {{#ButtonActive}}
+                                        <tr>
+                                            <td align="center" style="padding-top:24px">
+                                                <a href="{{ButtonLink}}" style="background-color:#C43330;padding:12px 32px;border-radius:8px;color:#FFFFFF;font-family:'DM Sans',sans-serif;font-weight:500;text-decoration:none;display:inline-grid;width:auto;max-width:240px;min-width:120px;">
+                                                    {{#ButtonText}}
+                                                        <span style="font-size:14px;line-height:19px">{{ButtonTextID}}</span>
+                                                        <span style="font-size:10px;line-height:14px;opacity:0.7">{{ButtonTextEN}}</span>
+                                                    {{/ButtonText}}
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {{/ButtonActive}}
+                                {{/Button}}
+
+                                {{#Footer}}
+                                    <tr>
+                                        <td align="left" style="padding-top:24px">
+                                            <p style="margin:0;font-size:16px;font-weight:400;line-height:24px;color:#1B2434;letter-spacing:.2px;font-family:'DM Sans',sans-serif;">{{{ Id }}}</p>
+                                            <p style="margin:4px 0 0 0;font-size:12px;line-height:15px;color:#9197A3;letter-spacing:.4px;font-family:'DM Sans',sans-serif;">{{{ En }}}</p>
+                                        </td>
+                                    </tr>
+                                {{/Footer}}
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="note-container">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="container" style="background-color:#455471;">
+                                <tr>
+                                    <td>
+                                        <p style="margin:0;font-size:11px;font-weight:400;line-height:16px;color:#FFFFFF;letter-spacing:.4px;font-family:'DM Sans',sans-serif;">
+                                            Catatan: Pesan ini dikirimkan dari alamat email yang tidak dipantau. Jika ada pertanyaan, silakan hubungi kami di <a href="mailto:helpdesk@privy.id" style="color:#fff!important;text-decoration:none;">helpdesk@privy.id</a>
+                                        </p>
+                                        <p style="margin:8px 0 0 0;font-size:11px;font-weight:400;line-height:16px;color:#D4D9E1;letter-spacing:.4px;font-family:'DM Sans',sans-serif;">
+                                            Note: The message is sent from an unmonitored email address. If you have questions, please contact us at <a href="mailto:helpdesk@privy.id" style="color:#D4D9E1!important;text-decoration:none;">helpdesk@privy.id</a>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="footer-container">
+                                <tbody>
+                                <tr height="10"></tr>
+                                <tr>
+                                    <td>
+                                        <h2 style="font-size:12px;font-weight:700;color:#4A5362;line-height:16px;letter-spacing:.2px;margin:0;">PT Privy Identitas Digital</h2>
+                                        <span style=font-size:12px;font-weight:400;color:#4A5362;line-height:16px;letter-spacing:.2px;margin:0;">Jl. Kemang Raya No. 15 Jakarta Selatan 12730</span>
+                                    </td>
+                                    <td align="center">
+                                        <a href="http://facebook.com/privyid" target="_blank"><img src="https://web.privy.id/assets/social-icon/privylite-facebook.png" style="max-height:35px;padding:0 5px;" alt=""></a>
+                                    </td>
+                                    <td align="center">
+                                        <a href="http://twitter.com/PrivyID" target="_blank"><img src="https://web.privy.id/assets/social-icon/privylite-twitter.png" style="max-height:35px;padding:0 5px;" alt=""></a>
+                                    </td>
+                                    <td align="center">
+                                        <a href="https://privy.id/" target="_blank"><img src="https://web.privy.id/assets/social-icon/privylite-link.png" style="max-height:35px;padding:0 5px;" alt=""></a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <!--                    <tr>-->
+                    <!--                        <td align="center">-->
+                    <!--                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding: 0 30px 20px 30px;">-->
+                    <!--                                <tbody>-->
+                    <!--                                <tr>-->
+                    <!--                                    <td align="center">-->
+                    <!--                                        <a href="https://privy.id/terms-and-conditions" style="font-size:12px;color:#999;" target="_blank">Ketentuan Penggunaan</a>-->
+                    <!--                                    </td>-->
+                    <!--                                    <td align="center">-->
+                    <!--                                        <a href="https://privy.id/kebijakan-privasi" style="font-size:12px;color:#999;" target="_blank">Kebijakan Privasi</a>-->
+                    <!--                                    </td>-->
+                    <!--                                    <td align="center">-->
+                    <!--                                        <a href="https://repository.privyca.id/" style="font-size:12px;color:#999;" target="_blank">Repository Dokumen</a>-->
+                    <!--                                    </td>-->
+                    <!--                                </tr>-->
+                    <!--                                </tbody>-->
+                    <!--                            </table>-->
+                    <!--                        </td>-->
+                    <!--                    </tr>-->
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
